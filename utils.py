@@ -508,6 +508,10 @@ def simulate_trading_strategy(predictions, actual_prices, dates, initial_capital
     buy_and_hold_value = btc_buy_and_hold * actual_prices[-1] * (1 - transaction_fee)
     buy_and_hold_return = (buy_and_hold_value - initial_capital) / initial_capital * 100
     
+    # 총 거래 금액 계산 (수수료 부과 기준)
+    total_trade_volume = sum(trade['value'] for trade in trade_log if trade['action'] in ['BUY', 'SELL'])
+    total_fees_paid = total_trade_volume * transaction_fee
+
     result = {
         'initial_capital': initial_capital,
         'final_value': final_value,
@@ -517,6 +521,8 @@ def simulate_trading_strategy(predictions, actual_prices, dates, initial_capital
         'portfolio_values': portfolio_values,
         'trade_log': trade_log,
         'num_trades': len(trade_log),
+        'total_trade_volume': total_trade_volume,
+        'total_fees_paid': total_fees_paid,
         'dates': dates
     }
     
@@ -560,31 +566,32 @@ def calculate_buy_and_hold_return(prices, initial_capital=10000, transaction_fee
 def compare_trading_strategies(results_dict):
     """
     여러 트레이딩 전략의 수익률을 비교합니다.
-    
+
     Parameters:
     -----------
     results_dict : dict
         {전략명: 결과} 형태의 딕셔너리
     """
     comparison_data = []
-    
+
     for strategy_name, result in results_dict.items():
         comparison_data.append({
             'Strategy': strategy_name,
             'Initial Capital': f"${result['initial_capital']:,.2f}",
             'Final Value': f"${result['final_value']:,.2f}",
             'Total Return (%)': f"{result['total_return']:.2f}",
-            'Num Trades': result.get('num_trades', 'N/A')
+            'Num Trades': result.get('num_trades', 'N/A'),
+            'Total Fees': f"${result.get('total_fees_paid', 0):,.2f}" if 'total_fees_paid' in result else 'N/A'
         })
-    
+
     df = pd.DataFrame(comparison_data)
-    
-    print("\n" + "="*80)
+
+    print("\n" + "="*100)
     print("트레이딩 전략 수익률 비교")
-    print("="*80)
+    print("="*100)
     print(df.to_string(index=False))
-    print("="*80 + "\n")
-    
+    print("="*100 + "\n")
+
     return df
 
 

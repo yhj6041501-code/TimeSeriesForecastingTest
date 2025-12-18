@@ -462,6 +462,35 @@ print_trade_log(trade_log, max_rows)
 - 투자 손실에 대한 책임은 투자자 본인에게 있습니다
 - 실전 투자 전에 반드시 전문가와 상담하세요
 
+- ---
+
+## 📌 Assignment Report (Week 12)
+
+### Student Information
+- Name: 윤희주
+- Student ID: 202204298
+
+### 1. Model Design and Training
+본 과제는 12주차 실습 자료를 기반으로 비트코인 가격 변화 방향을
+예측하는 딥러닝 분류 모델을 학습하였다.
+모델은 다음 날 가격 상승(1) 또는 하락(0)을 예측하도록 설계되었다.
+
+### 2. Trading Strategy
+모델의 예측 확률을 활용하여 확률 기반 트레이딩 전략을 설계하였다.
+예측 확률이 일정 임계값 이상일 때만 매수함으로써
+변동성이 큰 구간에서의 불필요한 거래를 줄이고자 하였다.
+
+### 3. Benchmark Comparison
+제안한 전략을 Buy and Hold 전략과 비교한 결과,
+확률 기반 전략은 시장 하락 구간에서 손실을 제한하며
+상대적으로 더 안정적인 성과를 보였다.
+
+### 4. Discussion and Limitations
+본 실험은 단순한 모델과 제한된 입력 피처를 사용하였다는 한계가 있다.
+추후 기술적 지표나 더 복잡한 모델을 적용하면
+전략 성능을 개선할 수 있을 것으로 기대된다.
+ㄴ
+
 **Remember: Never invest more than you can afford to lose!**
 
 ## 🤝 기여 및 피드백

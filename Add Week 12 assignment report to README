@@ -462,7 +462,12 @@ print_trade_log(trade_log, max_rows)
 - 투자 손실에 대한 책임은 투자자 본인에게 있습니다
 - 실전 투자 전에 반드시 전문가와 상담하세요
 
-- ---
+**Remember: Never invest more than you can afford to lose!**
+
+## 🤝 기여 및 피드백
+
+juho@hufs.ac.kr , 한국외국어대학교 GBT + Business & AI
+
 
 ## 📌 Assignment Report (Week 12)
 
@@ -489,10 +494,3 @@ print_trade_log(trade_log, max_rows)
 본 실험은 단순한 모델과 제한된 입력 피처를 사용하였다는 한계가 있다.
 추후 기술적 지표나 더 복잡한 모델을 적용하면
 전략 성능을 개선할 수 있을 것으로 기대된다.
-ㄴ
-
-**Remember: Never invest more than you can afford to lose!**
-
-## 🤝 기여 및 피드백
-
-juho@hufs.ac.kr , 한국외국어대학교 GBT + Business & AI
